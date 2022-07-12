@@ -7,7 +7,10 @@
 
 import UIKit
 
-class FeaturedViewController: UIViewController, UICollectionViewDataSource {
+class FeaturedViewController: UIViewController {
+    
+    let popularMovies = Movie.popularMovies()
+    let nowPlayingMovies = Movie.nowPlayingMovies()
     
     @IBOutlet var popularCollectionView: UICollectionView!
     @IBOutlet var nowPlayingCollectionView: UICollectionView!
@@ -17,21 +20,8 @@ class FeaturedViewController: UIViewController, UICollectionViewDataSource {
         // Do any additional setup after loading the view.
         
         popularCollectionView.dataSource = self
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "popularCell", for: <#T##IndexPath#>) as? PopularCollectionViewCell
+        nowPlayingCollectionView.dataSource = self
         
-        cell?.titleLabel.text = "Título do filme"
-        cell?.image.image = UIImage()
-        
-        return cell ?? UICollectionViewCell()
     }
-    
-
 }
 

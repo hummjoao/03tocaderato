@@ -95,7 +95,7 @@
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
                                                                 <connections>
-                                                                    <outlet property="image" destination="laY-VB-hc1" id="bSO-cO-zkh"/>
+                                                                    <outlet property="imageView" destination="laY-VB-hc1" id="bSO-cO-zkh"/>
                                                                     <outlet property="titleLabel" destination="z8X-XN-dId" id="ce2-uj-30h"/>
                                                                 </connections>
                                                             </collectionViewCell>
@@ -147,7 +147,7 @@
                                                             <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="OVy-73-kVx" customClass="NowPlayingCollectionViewCell" customModule="tocaderato" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nowPlayingCell" id="OVy-73-kVx" customClass="NowPlayingCollectionViewCell" customModule="tocaderato" customModuleProvider="target">
                                                                 <rect key="frame" x="16" y="0.0" width="251" height="114"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GDE-7g-Drv">
@@ -195,7 +195,7 @@
                                                                 </collectionViewCellContentView>
                                                                 <connections>
                                                                     <outlet property="dateLabel" destination="w8g-Wl-V3c" id="n2y-uW-08G"/>
-                                                                    <outlet property="image" destination="uKI-gl-ffh" id="Smy-dG-Zyu"/>
+                                                                    <outlet property="imageView" destination="uKI-gl-ffh" id="Smy-dG-Zyu"/>
                                                                     <outlet property="titleLabel" destination="yOm-B2-e5K" id="iWv-Bg-KNq"/>
                                                                 </connections>
                                                             </collectionViewCell>
