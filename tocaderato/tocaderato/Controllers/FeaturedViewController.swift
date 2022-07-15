@@ -9,7 +9,7 @@ import UIKit
 
 class FeaturedViewController: UIViewController {
     
-    let popularMovies = Movie.popularMovies()
+    var popularMovies: [Movie] = [] // = Movie.popularMovies()
     let nowPlayingMovies = Movie.nowPlayingMovies()
     let upcomingMovies = Movie.upcomingMovies()
     
@@ -31,6 +31,11 @@ class FeaturedViewController: UIViewController {
         
         upcomingCollectionView.dataSource = self
         
+        Task {
+            self.popularMovies = await Movie.popularMoviesAPI()
+            self.upcomingCollectionView.reloadData()
+        }
+        
     }
     
     func upcomingCell(_ indexPath: IndexPath) -> UpcomingCollectionViewCell {
@@ -38,7 +43,7 @@ class FeaturedViewController: UIViewController {
             let titulo: String = upcomingMovies[indexPath.item].title
             cell.titleLabel.text = titulo
             cell.dateLabel.text = String(upcomingMovies[indexPath.item].releaseDate.prefix(4))
-            cell.image.image = UIImage(named: upcomingMovies[indexPath.item].poster)
+            cell.image.image = UIImage(named: upcomingMovies[indexPath.item].posterPath)
             return cell
         }
         return UpcomingCollectionViewCell()
