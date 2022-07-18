@@ -10,8 +10,8 @@ import UIKit
 class FeaturedViewController: UIViewController {
     
     var popularMovies: [Movie] = [] // = Movie.popularMovies()
-    let nowPlayingMovies = Movie.nowPlayingMovies()
-    let upcomingMovies = Movie.upcomingMovies()
+    var nowPlayingMovies: [Movie] = [] // = Movie.nowPlayingMovies()
+    var upcomingMovies: [Movie] = [] // = Movie.upcomingMovies()
     
     @IBOutlet var popularCollectionView: UICollectionView!
     @IBOutlet var nowPlayingCollectionView: UICollectionView!
@@ -30,24 +30,22 @@ class FeaturedViewController: UIViewController {
         nowPlayingCollectionView.delegate = self
         
         upcomingCollectionView.dataSource = self
+        upcomingCollectionView.delegate = self
         
         Task {
             self.popularMovies = await Movie.popularMoviesAPI()
+            self.popularCollectionView.reloadData()
+        }
+        Task {
+            self.nowPlayingMovies = await Movie.nowPlayingMoviesAPI()
+            self.nowPlayingCollectionView.reloadData()
+        }
+        Task {
+            self.upcomingMovies = await Movie.upcomingMoviesAPI()
             self.upcomingCollectionView.reloadData()
         }
-        
     }
-    
-    func upcomingCell(_ indexPath: IndexPath) -> UpcomingCollectionViewCell {
-        if let cell = upcomingCollectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.cellIdentifier, for: indexPath) as? UpcomingCollectionViewCell {
-            let titulo: String = upcomingMovies[indexPath.item].title
-            cell.titleLabel.text = titulo
-            cell.dateLabel.text = String(upcomingMovies[indexPath.item].releaseDate.prefix(4))
-            cell.image.image = UIImage(named: upcomingMovies[indexPath.item].posterPath)
-            return cell
-        }
-        return UpcomingCollectionViewCell()
-    }
+ 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // passar o filme adiante

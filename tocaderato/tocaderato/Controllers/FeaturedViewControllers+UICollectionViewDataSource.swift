@@ -12,11 +12,15 @@ extension FeaturedViewController: UICollectionViewDataSource {
             return popularMovies.count
         } else if collectionView == nowPlayingCollectionView {
             return nowPlayingMovies.count
+        
+        } else if collectionView == upcomingCollectionView {
+            return upcomingMovies.count
         } else {
             return 0
         }
         
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -24,6 +28,8 @@ extension FeaturedViewController: UICollectionViewDataSource {
             return makePopularCell(collectionView, indexPath)
         } else if collectionView == nowPlayingCollectionView {
             return makeNowPlayingCell(indexPath)
+        } else if collectionView == upcomingCollectionView {
+            return makeUpcomingCell(indexPath)
         }
         return UICollectionViewCell()
     }
@@ -42,22 +48,38 @@ extension FeaturedViewController: UICollectionViewDataSource {
                 let imagem = UIImage(data: imageData) ?? UIImage()
                 cell.setup(title: movie.title, imageView: imagem)
             }
-            
-            
-            return cell}
+            return cell
+        }
         return PopularCollectionViewCell()
     }
     
     
     fileprivate func makeNowPlayingCell(_ indexPath: IndexPath) -> NowPlayingCollectionViewCell {
         if let cell = nowPlayingCollectionView.dequeueReusableCell(withReuseIdentifier: NowPlayingCollectionViewCell.cellIdentifier, for: indexPath) as? NowPlayingCollectionViewCell {
-            let titulo: String = nowPlayingMovies[indexPath.item].title
+       
             
-            cell.setup(image: UIImage(named: nowPlayingMovies[indexPath.item].posterPath) ?? UIImage(), title: titulo, year: String(nowPlayingMovies[indexPath.item].releaseDate.prefix(4)))
-            
+            let movie = nowPlayingMovies[indexPath.item]
+            Task {
+                let imageData = await Movie.downloadImageData(withPath: movie.posterPath)
+                let imagem = UIImage(data: imageData) ?? UIImage()
+                cell.setup(image: imagem, title: movie.title, year: String (movie.releaseDate.prefix(4)))
+            }
             return cell
         }
         return NowPlayingCollectionViewCell()
     }
     
+    fileprivate func makeUpcomingCell(_ indexPath: IndexPath) -> UpcomingCollectionViewCell {
+        if let cell = upcomingCollectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.cellIdentifier, for: indexPath) as? UpcomingCollectionViewCell {
+            
+            let movie = upcomingMovies[indexPath.item]
+            Task {
+                let imageData = await Movie.downloadImageData(withPath: movie.posterPath)
+                let imagem = UIImage(data: imageData) ?? UIImage()
+                cell.setup(title: movie.title, image: imagem, year: String (movie.releaseDate.suffix(5)))
+            }
+            return cell 
+        }
+        return UpcomingCollectionViewCell()
+    }
 }
