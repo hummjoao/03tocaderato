@@ -26,6 +26,9 @@
 		4FF8E6542881E7DA008DF91F /* TMDB-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FF8E6532881E7DA008DF91F /* TMDB-Info.plist */; };
 		4FF8E6562881EC5D008DF91F /* Movie+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF8E6552881EC5D008DF91F /* Movie+API.swift */; };
 		4FF8E6582881F8C8008DF91F /* MoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF8E6572881F8C8008DF91F /* MoviesResponse.swift */; };
+		4FFAEFD92887851A00992F38 /* PosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAEFD82887851A00992F38 /* PosterViewController.swift */; };
+		4FFAEFDB2887917F00992F38 /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAEFDA2887917F00992F38 /* TrendingViewController.swift */; };
+		4FFAEFDD2887933100992F38 /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAEFDC2887933100992F38 /* TrendingCollectionViewCell.swift */; };
 		4FFF77BF287F3F0E00C6BCA2 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF77BE287F3F0E00C6BCA2 /* DetailsViewController.swift */; };
 		4FFF77C1287F47E900C6BCA2 /* FeaturedViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF77C0287F47E900C6BCA2 /* FeaturedViewController+UICollectionViewDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +55,9 @@
 		4FF8E6532881E7DA008DF91F /* TMDB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TMDB-Info.plist"; sourceTree = "<group>"; };
 		4FF8E6552881EC5D008DF91F /* Movie+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+API.swift"; sourceTree = "<group>"; };
 		4FF8E6572881F8C8008DF91F /* MoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResponse.swift; sourceTree = "<group>"; };
+		4FFAEFD82887851A00992F38 /* PosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterViewController.swift; sourceTree = "<group>"; };
+		4FFAEFDA2887917F00992F38 /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
+		4FFAEFDC2887933100992F38 /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 		4FFF77BE287F3F0E00C6BCA2 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		4FFF77C0287F47E900C6BCA2 /* FeaturedViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +80,8 @@
 				4FD88A46287E145100C32E19 /* FeaturedViewControllers+UICollectionViewDataSource.swift */,
 				4FFF77C0287F47E900C6BCA2 /* FeaturedViewController+UICollectionViewDelegate.swift */,
 				4FFF77BE287F3F0E00C6BCA2 /* DetailsViewController.swift */,
+				4FFAEFD82887851A00992F38 /* PosterViewController.swift */,
+				4FFAEFDA2887917F00992F38 /* TrendingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -86,6 +94,7 @@
 				4F6708AA287C980700673BB6 /* PopularCollectionViewCell.swift */,
 				4F6708AC287C986900673BB6 /* NowPlayingCollectionViewCell.swift */,
 				4F89DAE628807BDE002C5691 /* UpcomingCollectionViewCell.swift */,
+				4FFAEFDC2887933100992F38 /* TrendingCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,11 +231,14 @@
 				4FD88A43287DF4E500C32E19 /* Movie+Popular.swift in Sources */,
 				4FD88A47287E145100C32E19 /* FeaturedViewControllers+UICollectionViewDataSource.swift in Sources */,
 				4FD88A3B287DEE4700C32E19 /* Movie.swift in Sources */,
+				4FFAEFDD2887933100992F38 /* TrendingCollectionViewCell.swift in Sources */,
 				4FD88A41287DF4E500C32E19 /* Movie+TrendingThisWeek.swift in Sources */,
+				4FFAEFDB2887917F00992F38 /* TrendingViewController.swift in Sources */,
 				4FD88A42287DF4E500C32E19 /* Movie+Upcoming.swift in Sources */,
 				4FFF77C1287F47E900C6BCA2 /* FeaturedViewController+UICollectionViewDelegate.swift in Sources */,
 				4F89DAE728807BDE002C5691 /* UpcomingCollectionViewCell.swift in Sources */,
 				4FD88A44287DF4E500C32E19 /* Movie+NowPlaying.swift in Sources */,
+				4FFAEFD92887851A00992F38 /* PosterViewController.swift in Sources */,
 				4F8125012878AFC100E71A94 /* FeaturedViewController.swift in Sources */,
 				4F8124FD2878AFC100E71A94 /* AppDelegate.swift in Sources */,
 				4FF8E6582881F8C8008DF91F /* MoviesResponse.swift in Sources */,
